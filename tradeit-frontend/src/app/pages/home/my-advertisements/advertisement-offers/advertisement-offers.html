@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="offers">
+        @if (offersResource.isLoading()) {
+            <p>carregando ofertas</p>
+        } @else {
+            @for (offer of offersResource.value(); track offer.id) {
+                <div class="offer">
+                    <span>{{ offer.itemName }}</span>
+                    <span>{{ offer.status }}</span>
+                    <span>{{ offer.madeBy }}</span>
+                    <span>{{ offer.additionalMoneyOffer }}</span>
+
+                    <div class="buttons">
+                        <button (click)="showAcceptOfferModal(offer)">Aceitar oferta</button>
+                        <button (click)="showOfferImages(offer)">Ver imagens do produto</button>
+                    </div>
+                </div>
+            } @empty {
+                <p>este anúncio não possui nenhuma oferta ainda</p>
+            }
+        }
+    </div>
+    <div class="images-display">
+        @if (resources().length > 0) {
+            <app-slide [resources]="resources()"></app-slide>
+        } @else {
+            <p>Selecione uma oferta para ver suas imagens</p>
+        }
+    </div>
+</div>
+<app-modal [opened]="acceptOfferModalIsOpen()">
+    <app-accept-offer-form (acceptOffer)="acceptOffer($event)"></app-accept-offer-form>
+</app-modal>

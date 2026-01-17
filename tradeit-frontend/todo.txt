@@ -1,0 +1,3 @@
+- adicionar validações e tratamentos de erros nos formulários de login e sign up;
+- resolver bugs dos cookies ao fazer login;
+- tratar erros na página do anúncio;

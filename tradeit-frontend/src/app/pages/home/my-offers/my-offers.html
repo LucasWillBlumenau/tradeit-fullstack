@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <h2>Confira Suas Ofertas</h2>
+    <div class="content">
+        @if (offers() === null) {
+            <p>loading...</p>
+        } @else {
+            <ul class="cards">
+                @for (offer of offers()?.content; track offer.id) {
+                    <li class="card">
+                        <img [src]="`${apiUrl}${offer.advertisementImageUrl}`" alt="imagem do anúncio" />
+                        <div>
+                            <span>Item ofertado: {{ offer.itemName }}</span>
+                            <span>Status da oferta: {{ offer.status | translateOfferStatus }}</span>
+                        </div>
+                        <div>
+                            @if (offer.status === "PENDING") {
+                                <button (click)="cancelOffer(offer.id)">Cancelar Oferta</button>
+                            } @else if (offer.status === "ACCEPTED") {
+                                <button (click)="showContactInfo(offer)">Ver Informações de Contato</button>
+                            }
+                            <a [routerLink]="`/home/advertisements/${offer.advertisementId}`">ver detlhes do anúncio</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>

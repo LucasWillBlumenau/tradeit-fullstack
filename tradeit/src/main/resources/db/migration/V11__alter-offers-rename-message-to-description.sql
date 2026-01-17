@@ -1,0 +1,1 @@
+ALTER TABLE offers RENAME COLUMN message TO description;

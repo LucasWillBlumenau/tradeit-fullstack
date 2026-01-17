@@ -1,0 +1,1 @@
+ALTER TABLE advertisements DROP COLUMN is_active;

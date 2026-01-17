@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <div class="advertisement">
+        <app-slide [resources]="resources()"></app-slide>
+        <div class="advertisement-info">
+            <h2 class="title">{{ advertisement()?.item?.name }}</h2>
+            <span class="description">{{ advertisement()?.description }}</span>
+            <span><span class="bold">Condição:</span> {{ advertisement()?.condition | translateItemCondition }}</span>
+            <span
+                ><span class="bold">Oferta em dinheiro mínima:</span>
+                {{ advertisement()?.extraMoneyAmountRequired | currency: "BRL" }}</span
+            >
+            <button (click)="openCreateOfferForm()" class="offer-button">
+                Oferecer "{{ advertisement()?.tradingItem?.name }}"
+            </button>
+        </div>
+    </div>
+</div>
+<app-modal [opened]="createOfferModalIsOpen()">
+    <app-create-offer-form (submittion)="createOffer($event)" [advertisement]="advertisement()"></app-create-offer-form>
+</app-modal>

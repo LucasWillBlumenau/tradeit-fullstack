@@ -1,0 +1,14 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.field >>> input {
+    padding: 8px;
+    border: none;
+    border-radius: var(--input-border-radius);
+    box-shadow: var(--card-shade);
+    height: 2rem;
+    font-size: var(--text-font-size);
+}

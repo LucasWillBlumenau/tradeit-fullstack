@@ -1,0 +1,85 @@
+<app-modal-form-wrapper>
+    <form class="form" [formGroup]="formGroup">
+        <h2>Faça sua oferta</h2>
+        <div class="fields">
+            <app-field label="Condição do item:">
+                <select formControlName="condition">
+                    <option value="NEW" selected>Novo</option>
+                    <option value="NEARLY">Semi-novo</option>
+                    <option value="USED">Usado</option>
+                </select>
+                @if (condition?.touched && condition?.invalid) {
+                    <ul class="errors">
+                        @if (condition?.hasError("required")) {
+                            <li class="error">O campo 'Estado do item' é obrigatório</li>
+                        }
+                    </ul>
+                }
+            </app-field>
+            <app-field label="Oferta adicional:">
+                <input
+                    type="number"
+                    step="0.01"
+                    [min]="advertisement()?.extraMoneyAmountRequired || 0"
+                    formControlName="additionalMoneyOffer"
+                />
+                @if (additionalMoneyOffer?.touched && additionalMoneyOffer?.invalid) {
+                    <ul class="errors">
+                        @if (additionalMoneyOffer?.hasError("required")) {
+                            <li class="error">O campo 'Oferta Extra' é obrigatório</li>
+                        }
+                        @if (additionalMoneyOffer?.hasError("min")) {
+                            <li class="error">
+                                O valor mínimo a ser ofertado é
+                                {{ advertisement()?.extraMoneyAmountRequired | currency: "BRL" }}
+                            </li>
+                        }
+                    </ul>
+                }
+            </app-field>
+            <app-field label="Descrição">
+                <textarea formControlName="description" rows="4"></textarea>
+                @if (description?.touched && description?.invalid) {
+                    <ul class="errors">
+                        @if (description?.hasError("required")) {
+                            <li class="error">O campo 'Descrição' é obrigatório</li>
+                        }
+                    </ul>
+                }
+            </app-field>
+            <app-field label="Selecione até 3 imagens do produto que você possui">
+                <input
+                    class="file-input"
+                    type="file"
+                    accept="image/png, image/jpeg, image/webp"
+                    multiple
+                    (change)="onImagesSelected()"
+                    (cancel)="images?.markAsTouched()"
+                    #imagesInput
+                />
+                @if (!images?.value && images?.touched) {
+                    <ul class="errors">
+                        <li class="error">Você deve selecionar ao menos uma imagem</li>
+                    </ul>
+                }
+            </app-field>
+            <app-field label="Selecione um vídeo do produto que você possui">
+                <input
+                    class="file-input"
+                    type="file"
+                    accept="video/mp4"
+                    formControlName="video"
+                    (change)="onVideoSelected()"
+                    (cancel)="video?.markAsTouched()"
+                    #videoInput
+                />
+                @if (!video?.value && video?.touched) {
+                    <ul class="errors">
+                        <li class="error">Você deve selecionar um vídeo</li>
+                    </ul>
+                }
+            </app-field>
+        </div>
+        <button [disabled]="formGroup.invalid" (click)="submitOffer()" class="button">Fazer oferta</button>
+    </form>
+</app-modal-form-wrapper>

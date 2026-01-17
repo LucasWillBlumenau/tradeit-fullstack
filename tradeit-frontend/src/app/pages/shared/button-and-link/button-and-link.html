@@ -1,0 +1,6 @@
+<div class="buttons">
+    <button (click)="onClick($event)" class="submit-button">
+        <ng-content></ng-content>
+    </button>
+    <span class="link">{{ phrase() }}<a [routerLink]="routerLink()">{{ linkDescription() }}</a></span>
+</div>

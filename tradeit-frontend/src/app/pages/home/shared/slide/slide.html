@@ -1,0 +1,19 @@
+<div class="slide-wrapper">
+    <button (click)="moveLeft()" [class.disabled]="currentIndex() === 0" class="icon left">&lt;</button>
+    <button (click)="moveRigth()" [class.disabled]="currentIndex() === lastIndex()" class="icon right">&gt;</button>
+    <div class="slide-content">
+        <div class="slide" style="transform: translateX(0%)" #slide>
+            @for (resource of resources(); track $index) {
+                @if (resource.type === "image") {
+                    <div class="image-wrapper">
+                        <img [src]="resource.url" alt="imagem do produto" />
+                    </div>
+                } @else {
+                    <video width="100%" height="100%" class="video-player" controls>
+                        <source [src]="resource.url" type="video/mp4" />
+                    </video>
+                }
+            }
+        </div>
+    </div>
+</div>

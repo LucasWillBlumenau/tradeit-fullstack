@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 3rem;
+    box-shadow: var(--card-shade);
+    border-radius: var(--card-border-radius);
+    gap: 3rem;
+    width: 25rem;
+}
+
+.title {
+    text-align: center;
+}

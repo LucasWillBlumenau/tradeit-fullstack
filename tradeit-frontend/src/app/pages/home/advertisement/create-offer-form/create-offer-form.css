@@ -1,0 +1,40 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    overflow-y: auto;
+}
+
+.title {
+    width: 100%;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.errors {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    color: var(--primary-error-color);
+    font-size: 0.75rem;
+}
+
+.button {
+    width: 100%;
+    height: 2rem;
+    font-size: var(--font-size);
+    border: none;
+    border-radius: var(--button-border-radius);
+    background-color: var(--primary-bg-color);
+    cursor: pointer;
+    margin-top: auto;
+}

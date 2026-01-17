@@ -1,0 +1,20 @@
+<li class="advertisement">
+    <div class="advertisement-info">
+        <div class="image-wrapper">
+            <img [src]="`${apiUrl}${advertisement().imageUrl}`" [alt]="`imagem de ${advertisement().item.name}`" />
+        </div>
+        <div class="advertisement-description">
+            <span><span class="bold">Item ofertado:</span> {{ advertisement().item.name }}</span>
+            <span><span class="bold">Item Desejado:</span> {{ advertisement().tradingItem.name }}</span>
+            <span><span class="bold">Condição:</span> {{ advertisement().condition | translateItemCondition }}</span>
+            <span
+                ><span class="bold">Preço adicional exijido:</span>
+                {{ advertisement().extraMoneyAmountRequired | currency: "BRL" }}</span
+            >
+        </div>
+    </div>
+    <div class="options">
+        <button (click)="onOffersViewClick()" class="button">Ver Ofertas</button>
+        <button (click)="onAdvertisementCancellingClick()" class="button">Cancelar Anúncio</button>
+    </div>
+</li>

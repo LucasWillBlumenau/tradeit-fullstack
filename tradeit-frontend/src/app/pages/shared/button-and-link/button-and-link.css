@@ -1,0 +1,26 @@
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.submit-button {
+    border: none;
+    border-radius: var(--button-border-radius);
+    padding: 5px;
+    font-size: var(--text-font-size);
+    cursor: pointer;
+    background-color: var(--primary-bg-color);
+}
+
+
+.link a {
+    text-decoration: none;
+    color: var(--primary-bg-color);
+    cursor: pointer;
+}
+
+.link a:hover {
+    text-decoration: underline;
+    color: var(--tertiary-bg-color);
+}

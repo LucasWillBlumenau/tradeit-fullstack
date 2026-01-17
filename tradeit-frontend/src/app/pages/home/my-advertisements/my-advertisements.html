@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <h2 class="title">Confira seus anúncios</h2>
+    <button (click)="openCreateAdvertisementModal()">Criar anúncio</button>
+    <div class="advertisements">
+        <ul class="advertisements-list">
+            @for (advertisement of advertisements(); track advertisement.id) {
+                <app-advertisement-info
+                    (advertisementCancelling)="cancelAdvertisemnt(advertisement)"
+                    (advertisementOffersView)="viewOffers(advertisement)"
+                    [advertisement]="advertisement"
+                ></app-advertisement-info>
+            }
+        </ul>
+    </div>
+</div>
+<app-modal [opened]="createAdvertisementModalIsOpened()">
+    <app-create-advertisement-form (submittion)="createAdvertisement($event)"></app-create-advertisement-form>
+</app-modal>
+<app-modal [opened]="listAdvertisementOffersModal()">
+    <app-advertisement-offers [advertisementId]="selectedAdvertisement()"></app-advertisement-offers>
+</app-modal>

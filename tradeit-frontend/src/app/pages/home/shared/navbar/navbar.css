@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6rem;
+    height: 4.5rem;
+    border-bottom: 1px solid var(--shade-color);
+    flex: 0 1 auto;
+}
+
+.title {
+    color: var(--primary-bg-color);
+    font-size: var(--title-font-size);
+}
+
+.links {
+    display: flex;
+    gap: 3rem;
+}
+
+.link {
+    color: var(--primary-bg-color);
+    cursor: pointer;
+}
+
+.link[highlight] {
+    color: var(--primary-bg-color-contrast);
+    cursor: default;
+}
+
+.link:not([highlight]):hover {
+    text-decoration: underline;
+}

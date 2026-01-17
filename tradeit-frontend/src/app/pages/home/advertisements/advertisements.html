@@ -1,0 +1,93 @@
+<div class="wrapper">
+    @if (advertisementsPage() === null) {
+        <p>Carregando página...</p>
+    } @else if (advertisementsPage()!.content) {
+        <div class="info">
+
+        </div>
+        <div class="grid">
+            @for (advertisement of advertisementsPage()!.content; track advertisement.id) {
+                <app-card
+                    [itemId]="advertisement.id"    
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    />
+                    <app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    />
+                    <app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    /><app-card
+                    [itemId]="advertisement.id"
+                    [imageUrl]="`${apiUrl}${advertisement.imageUrl}`"
+                    [itemName]="advertisement.item.name"
+                    [tradingItemName]="advertisement.tradingItem.name"
+                    />
+            }
+        </div>
+    } @else {
+        <p>Não há nenhum item disponível</p>
+    }
+</div>

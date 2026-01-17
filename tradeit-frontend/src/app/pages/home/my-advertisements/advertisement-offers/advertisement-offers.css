@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    background-color: var(--white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shade);
+    height: 80%;
+    width: 80%;
+}

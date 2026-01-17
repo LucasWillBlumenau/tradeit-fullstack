@@ -1,0 +1,92 @@
+@startuml
+
+hide circle
+
+entity "users" {
+   id : INT **PK**
+   --
+   name : VARCHAR
+   email : VARCHAR
+   password : VARCHAR
+}
+
+entity "categories" {
+   id : INT **PK**
+   --
+   name : VARCHAR
+}
+
+
+entity "products" {
+   id : INT **PK**
+   --
+   category_id : INT **FK**
+   --
+   name : VARCHAR
+}
+
+entity "advertisements" {
+   id : INT **PK**
+   --
+   advertiser_id : INT **FK**
+   product_id : INT
+   --
+   description : VARCHAR
+   product_video_url : VARCHAR
+   created_at : TIMESTAMP
+   status : AD_STATUS
+   is_active : BOOLEAN
+}
+
+entity "advertisement_images" {
+   display_order : INT **PK**
+   advertisement_id : INT
+   --
+   advertisement_id : INT **FK**
+   --
+   image_url : VARCHAR
+}
+
+entity "offers" {
+   id : INT **PK**
+   --
+   user_id : INT **FK**
+   product_id : INT
+   --
+   message: VARCHAR
+   product_video_url : VARCHAR
+   additional_money_offer : DECIMAL
+   status : OFFER_STATUS
+   accepted : BOOLEAN
+}
+
+entity "offer_images" {
+   display_order : INT **PK**
+   offer_id : INT
+   --
+   offer_id : INT **FK**
+   --
+   image_url : VARCHAR
+}
+
+
+entity "messages" {
+   id : INT **PK**
+   --
+   offer_id : INT **FK**
+   sender_id : INT
+   --
+   content : VARCHAR
+   sent_at : TIMESTAMP
+}
+
+categories ||--o{ products
+users ||--o{ advertisements
+advertisements ||--o{ offers
+products ||--o{ advertisements
+offers ||--o{ messages
+advertisements ||--o{ advertisement_images
+users ||--o{ messages
+offers ||--o{ offer_images
+
+@enduml

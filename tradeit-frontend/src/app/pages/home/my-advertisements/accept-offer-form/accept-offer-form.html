@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <form [formGroup]="formGroup">
+        <app-field label="Plataforma de Contato">
+            <select formControlName="contactType">
+                <option value="WHATSAPP">Whatsapp</option>
+                <option value="FACEBOOK">Facebook</option>
+                <option value="INSTAGRAM">Instagram</option>
+            </select>
+        </app-field>
+        <app-field label="Contato">
+            <input type="text" formControlName="contactInfo" />
+        </app-field>
+        <button (click)="submitForm()">Enviar</button>
+    </form>
+</div>

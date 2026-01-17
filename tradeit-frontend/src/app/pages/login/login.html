@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <form [formGroup]="formGroup" class="form">
+        <h2 class="title">Faça seu login</h2>
+        <app-field-set>
+            <app-input-wrapper label="Email">
+                <input type="text" placeholder="informe seu email" formControlName="email" />
+            </app-input-wrapper>
+             <app-input-wrapper label="Senha">
+                <input type="password" placeholder="informe sua senha" formControlName="password" />
+            </app-input-wrapper>          
+        </app-field-set>
+        <app-button-and-link 
+            (buttonClick)="submitForm()"
+            phrase="Não possui uma conta? "
+            linkDescription="Cadastre-se"
+            routerLink="/sign-up"
+        >Enviar</app-button-and-link>
+    </form>
+</div>

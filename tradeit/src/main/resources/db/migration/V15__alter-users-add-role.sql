@@ -1,0 +1,5 @@
+ALTER TABLE users ADD COLUMN role VARCHAR(11);
+
+UPDATE users SET role = 'ROLE_COMMON';
+
+ALTER TABLE users ALTER role SET NOT NULL;

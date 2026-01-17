@@ -1,0 +1,47 @@
+<app-modal-form-wrapper>
+    <form class="form" [formGroup]="formGroup">
+        <h2 class="title">Cadastre um novo anúncio</h2>
+        <div class="fields">
+            <app-field label="Condição do item">
+                <select class="input" formControlName="itemCondition">
+                    <option value="NEW" selected>Novo</option>
+                    <option value="NEARLY">Semi-novo</option>
+                    <option value="USED">Usado</option>
+                </select>
+            </app-field>
+            <app-field label="Selecione o item que você deseja anunciar">
+                <select formControlName="itemId">
+                    @for (item of items(); track item.id) {
+                        <option [value]="item.id">{{ item.name }}</option>
+                    }
+                </select>
+            </app-field>
+            <app-field label="Selecione o item que você deseja em troca">
+                <select formControlName="tradingItemId">
+                    @for (item of items(); track item.id) {
+                        <option [value]="item.id">{{ item.name }}</option>
+                    }
+                </select>
+            </app-field>
+            <app-field label="Oferta adicional mínima em dinheiro">
+                <input type="number" min="0" step="0.01" formControlName="additionalMoneyAmountRequired" />
+            </app-field>
+            <app-field label="Descrição">
+                <textarea rows="4" formControlName="description"></textarea>
+            </app-field>
+            <app-field label="Selecione até 3 imagens para o anúncio">
+                <input
+                    (change)="onImagesSelected()"
+                    type="file"
+                    accept="image/png, image/jpeg, image/webp"
+                    multiple
+                    #imagesInput
+                />
+            </app-field>
+            <app-field label="Selecione um vídeo para o anúncio">
+                <input (change)="onVideoSelected()" type="file" accept="video/mp4" #videoInput />
+            </app-field>
+        </div>
+        <button (click)="submitForm()">Enviar</button>
+    </form>
+</app-modal-form-wrapper>

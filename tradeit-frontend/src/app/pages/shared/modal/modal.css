@@ -1,0 +1,16 @@
+.background {
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: var(--shade-color);
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
