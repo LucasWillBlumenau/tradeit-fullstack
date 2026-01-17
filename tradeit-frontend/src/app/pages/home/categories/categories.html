@@ -1,0 +1,23 @@
+<div>
+    <h2>Confira as categorias</h2>
+    <button (click)="showCreateCategoryModal()">Criar categoria</button>
+    <div>
+        @if (categoriesPage() === null) {
+            <p>Carregando categorias...</p>
+        } @else {
+            <ul>
+                @for (category of categoriesPage()?.content; track category.id) {
+                    <li>
+                        <span>{{ category.name }}</span>
+                        <button (click)="deleteCategory(category)">Deletar categoria</button>
+                    </li>
+                } @empty {
+                    <p>Não há categorias para exibir</p>
+                }
+            </ul>
+        }
+    </div>
+</div>
+<app-modal [opened]="createCategoryModalIsOpen()">
+    <app-create-category-form (createCategory)="createCategory($event)"></app-create-category-form>
+</app-modal>

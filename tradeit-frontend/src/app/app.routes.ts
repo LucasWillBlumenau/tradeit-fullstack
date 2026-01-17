@@ -6,7 +6,7 @@ import { Home } from "./pages/home/home";
 import { MyAdvertisements } from "./pages/home/my-advertisements/my-advertisements";
 import { MyOffers } from "./pages/home/my-offers/my-offers";
 import { Advertisement } from "./pages/home/advertisement/advertisement";
-import { Categories } from "./pages/categories/categories";
+import { Categories } from "./pages/home/categories/categories";
 import { Items } from "./pages/items/items";
 
 export const routes: Routes = [

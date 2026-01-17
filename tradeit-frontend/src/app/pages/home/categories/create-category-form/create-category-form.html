@@ -1,0 +1,9 @@
+<app-modal-form-wrapper>
+    <form [formGroup]="formGroup">
+        <h2>Crie uma categoria</h2>
+        <app-field label="Nome">
+            <input type="text" formControlName="name" />
+        </app-field>
+        <button (click)="submitForm()">Enviar</button>
+    </form>
+</app-modal-form-wrapper>
