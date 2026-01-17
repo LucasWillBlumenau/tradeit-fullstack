@@ -1,5 +1,8 @@
 <div>
-    <h2>Confira todos os itens</h2>
+    <div>
+        <h2>Confira todos os itens</h2>
+        <button (click)="openCreateItemModal()">Criar novo item</button>
+    </div>
     @if (itemsPage() === null) {
         <p>Carregando items...</p>
     } @else {
@@ -8,7 +11,6 @@
                 <li>
                     <span>{{ item.name }}</span>
                     <div>
-                        <button (click)="showEditItemModal(item)">Editar</button>
                         <button (click)="removeItem(item)">Remover</button>
                     </div>
                 </li>
@@ -16,10 +18,6 @@
         </ul>
     }
 </div>
-<app-modal [opened]="editItemModalIsOpen()">
-    <form>
-        <app-field label="Nome do item">
-            <input type="text" />
-        </app-field>
-    </form>
+<app-modal [opened]="createItemModalIsOpen()">
+    <app-create-item-form (createItem)="createItem($event)"></app-create-item-form>
 </app-modal>

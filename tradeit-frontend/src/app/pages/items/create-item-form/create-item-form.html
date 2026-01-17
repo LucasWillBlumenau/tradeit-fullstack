@@ -1,0 +1,18 @@
+<app-modal-form-wrapper>
+    <form [formGroup]="formGroup">
+        <h2>Criar novo item</h2>
+        <div>
+            <app-field label="Nome">
+                <input type="text" formControlName="name" />
+            </app-field>
+            <app-field label="Categoria">
+                <select formControlName="categoryId">
+                    @for (category of categoriesPage()?.content; track category.id) {
+                        <option [value]="category.id">{{ category.name }}</option>
+                    }
+                </select>
+            </app-field>
+        </div>
+        <button (click)="submitForm()">Enviar</button>
+    </form>
+</app-modal-form-wrapper>
